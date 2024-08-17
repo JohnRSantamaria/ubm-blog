@@ -1,8 +1,8 @@
 import { initializeApp, getApps } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
 import 'firebase/firestore';
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// Configuración de Firebase para tu aplicación web
 const firebaseConfig = {
 	apiKey: process.env.FIREBASE_API_KEY,
 	authDomain: process.env.FIREBASE_AUTH_DOMAIN,
@@ -13,6 +13,10 @@ const firebaseConfig = {
 	appId: process.env.FIREBASE_APP_ID,
 };
 
+// Inicializar Firebase
 let firebase_app = getApps()?.length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
 
-export default firebase_app;
+// Inicializar Firestore
+const db = getFirestore(firebase_app);
+
+export { db, firebase_app };

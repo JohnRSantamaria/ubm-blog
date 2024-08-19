@@ -1,11 +1,13 @@
 import Link from 'next/link';
 import React from 'react';
 
+import { CiLinkedin } from 'react-icons/ci';
+
 export default function Footer() {
 	const currentYear: number = new Date().getFullYear();
 
 	return (
-		<footer className='max-w-screen-2xl ml-auto mr-auto px-2 min-h-12 font-semibold flex justify-between'>
+		<footer className='max-w-screen-2xl ml-auto mr-auto px-2 min-h-12 font-semibold flex items-center justify-between'>
 			<div>
 				{currentYear}
 				<span className='text-primary'>&#169;</span> All Rights Reserved.
@@ -16,10 +18,14 @@ export default function Footer() {
 			<Link
 				href={'https://www.linkedin.com/in/john-santamaria-dev/'}
 				target='_blank'
-				className='hover:text-primary active:scale-[.98] transition-transform duration-300'
+				className='hover:text-primary active:scale-[.98] transition-transform duration-300 flex items-center gap-2'
 			>
-				Say hello
+				Di Hola
+				<CiLinkedin className='w-auto h-5 text-primary' />
 			</Link>
+			<div className='select-text '>
+				<p>jhonrincon.fs@academia.umb.edu.co</p>
+			</div>
 		</footer>
 	);
 }

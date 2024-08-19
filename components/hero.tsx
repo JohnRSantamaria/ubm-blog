@@ -4,12 +4,13 @@ import React from 'react';
 import Image from 'next/image';
 import imgLogo from '@/public/img/Escudo_UMB.png';
 import { useRouter } from 'next/navigation';
+import Redirect from './buttons/redirect';
 
 export default function Hero() {
 	const router = useRouter();
 
 	const handleClick = () => {
-		router.push('blog');
+		router.push('crear');
 	};
 
 	return (
@@ -28,12 +29,10 @@ export default function Hero() {
 						¡Crea un blog para compartir conocimientos con las personas que quieras!
 					</p>
 				</span>
-				<button
-					className='border rounded-md px-8 py-2 text-xl bg-primary border-primary text-light active:scale-95 transition-all duration-300'
-					onClick={handleClick}
-				>
-					Crea tu blog
-				</button>
+				<Redirect
+					handleClick={handleClick}
+					text='Crea tu blog'
+				/>
 			</span>
 		</div>
 	);
